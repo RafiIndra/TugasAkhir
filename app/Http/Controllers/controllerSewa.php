@@ -44,16 +44,16 @@ class controllerSewa extends Controller
         $transaksi->total_harga = $total;
         $transaksi->save();
 
-        $motor = $request->motor;
-        $motordipinjam = new MotorDipinjam;
-        $motordipinjam->No_polisi = $no;
-        $motordipinjam->Merk = $merk;
-        $motordipinjam->Jenis = $jenis;
-        $motordipinjam->Tipe = $tipe;
-        $motordipinjam->harga_Per_Hari = $harga;
-        $motordipinjam->save();
+        //$motor = $request->motor;
+        //$motordipinjam = new MotorDipinjam;
+        //$motordipinjam->No_polisi = $no;
+        //$motordipinjam->Merk = $merk;
+        //$motordipinjam->Jenis = $jenis;
+        //$motordipinjam->Tipe = $tipe;
+        //$motordipinjam->harga_Per_Hari = $harga;
+        //$motordipinjam->save();
 
-        Motor::where('No_Polisi', $no)->delete();
+        Motor::where('No_Polisi', $no)->update(['available' => 0]);
 
         return view('invoice')->with('nama', $nama)->with('NIK', $NIK)->with('durasi', $durasi)->with('alamat', $alamat)->with('no', $no)->with('merk', $merk)->with('tipe', $tipe)->with('jenis', $jenis)->with('transaksi', $transaksi)->with('harga', $harga);
     }

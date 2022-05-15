@@ -9,7 +9,7 @@ class controllerMotor extends Controller
 {
     public function index()
     {
-        $motors = Motor::all();
+        $motors = Motor::select()->where("available", 1)->get();
         return view('index')->with('motors', $motors);
     }
 

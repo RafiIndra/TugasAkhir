@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Events - Praktikum Laravel Ke-2</title>
+    <title>Motoran</title>
     <link rel="stylesheet" href="{{ asset('style.css') }}" />
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
 
