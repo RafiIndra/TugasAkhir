@@ -10,11 +10,14 @@
 </head>
 
 <body>
+    <header>
+        <div class="nav-button"><a href="/"><span id="motor">Motor</span><span id="an">an</span></a></div>
+    </header>
     <!--{{ $no }} - {{ $merk }} - {{ $tipe }} - {{ $jenis }}-->
     <div class="container-information">
 
         <div class="information">
-            <h1>Rincian Pesanan</h1>
+            <h1 id=Title>Rincian Pesanan</h1>
             <p>Motor yang akan disewa</p>
             <h2 class="text-information">{{ $tipe }}</h2>
             <p>Merk</p>
@@ -22,7 +25,7 @@
             <p>No. Polisi</p>
             <h2 class="text-information">{{ $no }}</h2>
             <p>Harga per hari</p>
-            <h2 class="text-information">{{ $harga }}</h2>
+            <h2 class="text-information">Rp.{{ $harga }}</h2>
         </div>
 
         <div class="form1">
@@ -82,6 +85,11 @@
         </div>
 
     </div>
+    <footer>
+        <div class="container-fluid" id="cr">
+            <h5 id="creator">© 2022 Motoran corp</h5>
+        </div>
+    </footer>
 </body>
 
 </html>

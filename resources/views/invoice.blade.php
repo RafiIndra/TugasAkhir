@@ -13,19 +13,30 @@
     <!--{{ $nama }} - {{ $NIK }} - {{ $durasi }} - {{ $alamat }}<br>
     {{ $no }} - {{ $merk }} - {{ $tipe }} - {{ $jenis }} - {{ $transaksi->id }}-->
     <div class="container">
-        INVOICE<br>
-        id_transaksi: {{ $transaksi->id }}<br>
-        Nama Pelanggan: {{ $nama }}<br>
-        NIK: {{ $NIK }}<br>
-        Merk motor: {{ $merk }}<br>
-        Tipe motor: {{ $tipe }}<br>
-        Harga per hari: {{ $harga }}<br>
-        Lama sewa: {{ $durasi }}<br>
-        Total bayar: Rp {{ $transaksi->total_harga }}<br><br><br>
+        <div class="invoice">
+            <div class="logo">
+                <span id="motor">Motor</span><span id="an">an</span></a>
+            </div>
+            <div class="id-transaksi">
+                <p>id_transaksi: {{ $transaksi->id }}</p><br>
+            </div>
+            <div class="invoice-text">
+                <p>INVOICE<br>
+                    Nama Pelanggan: {{ $nama }}<br>
+                    NIK: {{ $NIK }}<br>
+                    Merk motor: {{ $merk }}<br>
+                    Tipe motor: {{ $tipe }}<br>
+                    Harga per hari: {{ $harga }}<br>
+                    Lama sewa: {{ $durasi }}<br>
+                    Total bayar: Rp {{ $transaksi->total_harga }}<br><br><br>
 
-        Silahkan lakukan pembayaran saat mengambil motor, atau lakukan transfer ke nomor berikut:<br>
-        1234356172187 MANDIRI a.n Deddy Corbuzier
-        <br><br>
+                    Silahkan lakukan pembayaran saat mengambil motor, atau lakukan transfer ke nomor berikut:<br>
+                    1234356172187 MANDIRI a.n Deddy Corbuzier</p>
+                <br><br>
+            </div>
+        </div>
+    </div>
+    <div class="okay">
         <a href="{{ route('home.button') }}">
             <button>OKAY</button>
         </a>

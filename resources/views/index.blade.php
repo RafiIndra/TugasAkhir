@@ -11,22 +11,15 @@
 <body>
     <header>
         <div class="nav-button"><a href="/"><span id="motor">Motor</span><span id="an">an</span></a></div>
-        <!--<div class="nav">
-            <ul>
-                <li><a href="./contactus.html">Contact Us</a></li>
-                <li><a href="./aboutus.html">About Us</a></li>
-                <li><a href="./settings.html">Settings</a></li>
-                <li><a href="./chat.html">Chats</a></li>
-                <li><a href="./notification.html">Notification</a></li>
-                <li><a href="./profile.html">Profile</a></li>
-            </ul>
-        </div>-->
     </header>
     <br>
     <div class="hero">
         <br>
         <h1 id="heroText">Rent a motorbike, easily.</h1>
-        <img src=motor.png id="gambarIndex" />
+        <div class="logo2">
+            <span id="motor">Motor</span><span id="an">an</span></a>
+        </div>
+        <img src=motor2.png id="gambarIndex" />
     </div>
     <!-- <div class="container">
         <table>
@@ -63,7 +56,7 @@
                 @endforelse
         </table>
     </div> -->
-    <h1 id="motorTitle">Motor Tersedia</h1>
+    <h1 id="Title">Motor Tersedia</h1>
     <div class="row">
         @forelse($motors as $motor)
         <div class="column">
@@ -90,6 +83,11 @@
         <h1>Motor Tidak Tersedia.</h1>
         @endforelse
     </div>
+    <footer>
+        <div class="container-fluid" id="cr">
+            <h5 id="creator">© 2022 Motoran corp</h5>
+        </div>
+    </footer>
 
 
 </body>

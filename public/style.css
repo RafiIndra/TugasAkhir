@@ -3,6 +3,13 @@
 * {
     font-family: "Poppins";
 }
+:root {
+    --main-bg-color: white;
+    --primary-color: #4ab9dd;
+    --secondary-color: #006080;
+    --alternate-color: #a5a0da;
+    --alert-color: #cb7070;
+}
 
 .container {
     display: flex;
@@ -84,7 +91,7 @@ h1 {
 .tipe {
     margin: 30px auto;
     text-align: center;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: "Poppins";
     letter-spacing: 0.2em;
     font-size: 30px;
 }
@@ -134,6 +141,7 @@ p {
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0px 5px 10px 0px #0000001a;
+    background-image: linear-gradient(#add8e6, #4ab9dd);
 }
 
 .information > h1 {
@@ -151,7 +159,7 @@ p {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -50px;
+    top: -150px;
     width: 65%;
 }
 header {
@@ -188,12 +196,68 @@ header {
 .hero {
     width: 90%;
     border-radius: 20px;
-    background-image: linear-gradient(#add8e6, #4ab9dd);
+    /*background-image: linear-gradient(#add8e6, #4ab9dd);*/
+    /*background-image: linear-gradient(#fffb8d, #4ab9dd);*/
+    background-image: linear-gradient(antiquewhite, #4ab9dd);
     margin-left: auto;
     margin-right: auto;
 }
-#motorTitle {
+#Title {
     font-family: "Poppins";
     color: #006080;
     letter-spacing: 0.1em;
+}
+footer {
+    /*background-color: var(--secondary-color);*/
+    height: 40px;
+    text-align: right;
+    width: 100%;
+}
+
+#creator {
+    height: auto;
+    color: var(--secondary-color);
+    font-size: 16px;
+    margin-right: 20px;
+    font-weight: lighter;
+}
+.logo {
+    width: 50%;
+    float: left;
+}
+.id-transaksi > p {
+    width: 50%;
+    float: right;
+}
+
+.invoice {
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: #000000;
+}
+
+.invoice-text {
+    margin-top: 70px;
+}
+
+.okay {
+    width: 25%;
+    float: right;
+}
+.okay > a > button {
+    border: none;
+    width: 200px;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    height: 50px;
+}
+
+.okay > a:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+.logo2 {
+    width: 60%;
+    float: right;
+    -webkit-text-stroke: #000000;
 }
