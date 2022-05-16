@@ -35,7 +35,7 @@
                         </td>
                         <td>:</td>
                         <td>
-                            <input type="text" name="nama"><br>
+                            <input type="text" name="nama" required><br>
                         </td>
                     </tr>
                     <tr>
@@ -44,7 +44,7 @@
                         </td>
                         <td>:</td>
                         <td>
-                            <input type="text" name="durasi"><br>
+                            <input type="number" name="durasi" required><br>
                         </td>
                     </tr>
                     <tr>
@@ -53,7 +53,7 @@
                         </td>
                         <td>:</td>
                         <td>
-                            <input type="text" name="NIK"><br>
+                            <input type="text" name="NIK" required><br>
                         </td>
                     </tr>
                     <tr>
@@ -62,7 +62,7 @@
                         </td>
                         <td>:</td>
                         <td>
-                            <input type="text" name="alamat"><br>
+                            <input type="text" name="alamat" required><br>
                         </td>
                     </tr>
                     <tr>

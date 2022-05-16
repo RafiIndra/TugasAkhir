@@ -9,7 +9,25 @@
 </head>
 
 <body>
-    <h1>Motor Tersedia</h1>
+    <header>
+        <div class="nav-button"><a href="/"><span id="motor">Motor</span><span id="an">an</span></a></div>
+        <!--<div class="nav">
+            <ul>
+                <li><a href="./contactus.html">Contact Us</a></li>
+                <li><a href="./aboutus.html">About Us</a></li>
+                <li><a href="./settings.html">Settings</a></li>
+                <li><a href="./chat.html">Chats</a></li>
+                <li><a href="./notification.html">Notification</a></li>
+                <li><a href="./profile.html">Profile</a></li>
+            </ul>
+        </div>-->
+    </header>
+    <br>
+    <div class="hero">
+        <br>
+        <h1 id="heroText">Rent a motorbike, easily.</h1>
+        <img src=motor.png id="gambarIndex" />
+    </div>
     <!-- <div class="container">
         <table>
             <tbody>
@@ -45,7 +63,7 @@
                 @endforelse
         </table>
     </div> -->
-
+    <h1 id="motorTitle">Motor Tersedia</h1>
     <div class="row">
         @forelse($motors as $motor)
         <div class="column">
