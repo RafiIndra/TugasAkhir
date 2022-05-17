@@ -17,6 +17,8 @@ Route::get('/', [App\Http\Controllers\controllerMotor::class, 'index']);
 
 Route::get('/index', [App\Http\Controllers\controllerMotor::class, 'index']);
 
+Route::post('/index', [App\Http\Controllers\controllerMotor::class, 'index'])->name('sort.motor');
+
 Route::post('formSewa.php', [App\Http\Controllers\controllerSewa::class, 'form'])->name('sewa.motor');
 
 Route::post('events/validate',[App\Http\Controllers\EventsController::class, 'validateForm'])->name('validate.event');

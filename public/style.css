@@ -257,7 +257,15 @@ footer {
     cursor: pointer;
 }
 .logo2 {
-    width: 60%;
-    float: right;
+    width: fit-content;
+    margin: auto;
     -webkit-text-stroke: #000000;
+}
+.sort-motor {
+    font-family: "poppins";
+    font-size: medium;
+    color: var(--secondary-color);
+    width: fit-content;
+    margin: auto;
+    font-weight: 450;
 }

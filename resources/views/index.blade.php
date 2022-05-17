@@ -57,6 +57,23 @@
         </table>
     </div> -->
     <h1 id="Title">Motor Tersedia</h1>
+    <div class="sort-motor">
+        <form action="{{ route('sort.motor') }}" method="post">
+            @csrf
+            <label for="merk">Pilih Merk:</label>
+            <select name="merk" id="merk">
+                <option value="">Any</option>
+                <option value="honda">honda</option>
+                <option value="yamaha">yamaha</option>
+                <option value="suzuki">suzuki</option>
+                <option value="kawasaki">kawasaki</option>
+            </select>
+            <label for="tipe">Pilih Tipe Unit</label>
+            <input type="text" name="tipe">
+            <input type="submit" value="Cari">
+        </form>
+    </div>
+    <br>
     <div class="row">
         @forelse($motors as $motor)
         <div class="column">

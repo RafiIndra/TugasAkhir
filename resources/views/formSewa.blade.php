@@ -43,7 +43,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <label for="durasi">Lama Sewa</label>
+                            <label for="durasi">Lama Sewa (hari)</label>
                         </td>
                         <td>:</td>
                         <td>
@@ -56,7 +56,9 @@
                         </td>
                         <td>:</td>
                         <td>
-                            <input type="text" name="NIK" required><br>
+                            <input type="number" name="NIK" min="1000000000000000" maxlength="9999999999999999" required
+                                oninvalid="this.setCustomValidity('NIK tidak sesuai')"
+                                oninput="this.setCustomValidity('')" /><br>
                         </td>
                     </tr>
                     <tr>

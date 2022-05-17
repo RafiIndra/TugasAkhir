@@ -44,26 +44,8 @@
 </body>
 <script>
 window.onload = function() {
-    document.title = "Motoran-{{ $transaksi->id }}";
+    document.title = "Motoran-transaksi-id{{ $transaksi->id }}";
     window.print();
-    /*var url = document.location.href,
-        params = url.split("?")[1].split("&"),
-        data = {},
-        tmp;
-    for (var i = 0, l = params.length; i < l; i++) {
-        tmp = params[i].split("=");
-        data[tmp[0]] = tmp[1];
-    }
-    document.getElementById("invoice-kodepby").innerText = data.kodebayar;
-    document.getElementById("invoice-totalbayar").innerText = data.totalbayar;
-    document.getElementById("invoice-jmlmalam").innerText = data.jmlmalam;
-    document.getElementById("invoice-namahotel").innerText =
-        dataHotel[data.id].nama;
-    document.getElementById("invoice-lokasi").innerText =
-        dataHotel[data.id].lokasi;
-    document.getElementById("invoice-alamat").innerText =
-        dataHotel[data.id].alamat;
-        */
 };
 </script>
 
