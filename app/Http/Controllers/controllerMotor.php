@@ -16,19 +16,22 @@ class controllerMotor extends Controller
             ->where("Tipe", $request->tipe)
             ->get();
             return view('index')->with('motors', $motors);
-        } elseif (isset($request->merk)){
+        }
+        elseif (isset($request->merk)){
             $motors = Motor::select()
             ->where("available", 1)
             ->where("Merk", $request->merk)
             ->get();
             return view('index')->with('motors', $motors);
-        } elseif (isset($request->tipe)){
+        } 
+        elseif (isset($request->tipe)){
             $motors = Motor::select()
             ->where("available", 1)
             ->where("Tipe", $request->tipe)
             ->get();
             return view('index')->with('motors', $motors);
-        } else {
+        }
+        else {
             $motors = Motor::select()->where("available", 1)->get();
             return view('index')->with('motors', $motors);
         }
