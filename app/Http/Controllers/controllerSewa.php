@@ -81,5 +81,6 @@ class controllerSewa extends Controller
         ->with('harga', $harga)
         ->with('available', $available)
         ->with('motor', $motor);
+        /*tes*/
     }
 }
