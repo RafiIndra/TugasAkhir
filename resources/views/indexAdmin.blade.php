@@ -5,29 +5,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Motoran</title>
     <!--<link rel="stylesheet" href="{{ asset('style.css') }}" />
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">-->
     <style>
-        td {
-            border: 1px solid black;
-            padding: 5px;
+        header {
+            height: 70px;
+            border-radius: 10px;
         }
+        #motor {
+            font-size: 270%;
+            /*color: #7c65ff;*/
+            color: #4ab9dd;
+            margin-left: 20px;
+            height: auto;
+            font-weight: 500;
+        }
+        #an {
+            font-size: 270%;
+            color: #000000;
+            height: auto;
+            font-weight: 500;
+        }
+        .nav-button a {
+            text-decoration: none;
+        }
+        table{
+            font-family: 'Arial';
+            margin: 25px auto;
+            border-collapse: collapse;
+            border: 1px solid #eee;
+            border-bottom: 2px solid #00cccc;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
+                0px 10px 20px rgba(0,0,0,0.05),
+                0px 20px 20px rgba(0,0,0,0.05),
+                0px 30px 20px rgba(0,0,0,0.05);
+
+        }
+        
+        th,td {
+            border: 0px solid #f2f5f7;
+            background-image: linear-gradient(#add8e6, #4ab9dd);
+            border-bottom: 1px solid #ddd;
+            padding: 8px 20px;
+            text-align: center;
+
+        }
+
+        h1{
+            margin-top: 40px;
+            text-align: center;
+            font-family: Georgia, "Times New Roman", Times, serif;
+            font-size: 30px;
+        } 
+
     </style>
 </head>
 
 <body>
+    <header>
+        <div class="nav-button"><a href="/"><span id="motor">Motor</span><span id="an">an</span></a></div>
+    </header>
+
     <div class="admin">
         <h1 id=>DAFTAR MOTOR</h1>
         <table>
             <tbody>
                 <tr>
-                    <td>No. Polisi</td>
-                    <td>Merk</td>
-                    <td>Tipe</td>
-                    <td>Jenis</td>
-                    <td>Harga/Hari</td>
-                    <td>Available</td>
+                    <th>No. Polisi</th>
+                    <th>Merk</th>
+                    <th>Tipe</th>
+                    <th>Jenis</th>
+                    <th>Harga/Hari</th>
+                    <th>Available</th>
+                    <th>Ubah</th>
+
                 </tr>
                 @forelse($motors as $motor)
                 <tr>
@@ -56,17 +108,18 @@
                 @endforelse
         </table>
         <br><br>
+
         <h1 id=>DAFTAR TRANSAKSI</h1>
         <table>
             <tbody>
                 <tr>
-                    <td>id transaksi</td>
-                    <td>No. Polisi</td>
-                    <td>NIK pelanggan</td>
-                    <td>Tipe</td>
-                    <td>Jenis</td>
-                    <td>Harga/Hari</td>
-                    <td>Available</td>
+                    <th>ID Transaksi</th>
+                    <th>No. Polisi</th>
+                    <th>NIK Pelanggan</th>
+                    <th>Tipe</th>
+                    <th>Jenis</th>
+                    <th>Harga/Hari</th>
+                    <th>Available</th>
                 </tr>
                 @forelse($transaksis as $transaksi)
                 <tr>
@@ -85,7 +138,7 @@
                             <input type="hidden" name="tipe" value={{ $motor->Tipe }}>
                             <input type="hidden" name="jenis" value={{ $motor->Jenis }}>
                             <input type="hidden" name="harga" value={{ $motor->harga_Per_Hari }}>
-                            <input type="submit" value="sewa">
+                            <input type="submit" value="Sewa">
                         </form>
                     </td>
                 </tr>
@@ -94,6 +147,7 @@
                 @endforelse
         </table>
     </div>
+    
 </body>
 
 </html>
