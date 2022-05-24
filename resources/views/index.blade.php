@@ -5,12 +5,23 @@
     <title>Motoran</title>
     <link rel="stylesheet" href="{{ asset('style.css') }}" />
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
-
 </head>
+
 
 <body>
     <header>
         <div class="nav-button"><a href="/"><span id="motor">Motor</span><span id="an">an</span></a></div>
+        <div class="logout">
+            <button>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <x-dropdown-link id="tes" :href="route('logout')" onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-dropdown-link>
+                </form>
+            </button>
+        </div>
     </header>
     <br>
     <div class="hero">
