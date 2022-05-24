@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <h1>TAMBAH MOTOR BARU</h1>
     <form action="{{ route('simpan.add.motor') }}" method="post">
         @csrf
         <label for="no">No. Polisi</label><br>

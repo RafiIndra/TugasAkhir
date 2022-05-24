@@ -63,6 +63,11 @@
         font-family: Georgia, "Times New Roman", Times, serif;
         font-size: 30px;
     }
+
+    .add-motor {
+        width: fit-content;
+        margin: auto;
+    }
     </style>
 </head>
 
@@ -112,9 +117,11 @@
                 <li>Motor Tidak Tersedia.</li>
                 @endforelse
         </table>
-        <a href="{{ route('add.motor') }}">
-            <button>Tambahkan Motor</button>
-        </a>
+        <div class="add-motor">
+            <a href="{{ route('add.motor') }}">
+                <button>Tambahkan Motor</button>
+            </a>
+        </div>
         <br><br>
 
         <h1 id=>DAFTAR TRANSAKSI</h1>
@@ -126,9 +133,9 @@
                     <th>NIK Pelanggan</th>
                     <th>Nama Pelanggan</th>
                     <th>Alamat Pelanggan</th>
-                    <th>Lama Sewa (hari)</th>
+                    <th>Lama Sewa<br>(hari)</th>
                     <th>total_harga</th>
-                    <th>status_transaksi (berjalan=0, selesai=1)</th>
+                    <th>status_transaksi<br>(berjalan=0, selesai=1)</th>
                     <th>edit</th>
                 </tr>
                 @forelse($transaksis as $transaksi)

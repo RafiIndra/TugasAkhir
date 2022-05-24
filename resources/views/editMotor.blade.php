@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <h1>EDIT INFO MOTOR</h1>
     <form action="{{ route('simpan.edit.motor') }}" method="post">
         @csrf
         <label for="no">No. Polisi</label><br>
@@ -26,7 +27,7 @@
         <label for="harga">Harga/hari</label><br>
         <input type="number" name="harga" value="{{ $harga }}" />
         <br><br>
-        <label for="available">Tersedia (True/False)</label><br>
+        <label for="available">Tersedia (True=1/False=0)</label><br>
         <input type="number" min=0 max=1 name="available" value="{{ $available }}" />
         <br><br>
         <input type="hidden" name="id" value="{{ $id }}">
