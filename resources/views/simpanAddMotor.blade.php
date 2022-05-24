@@ -9,27 +9,26 @@
 </head>
 
 <body>
-    <form action="{{ route('simpan.edit.motor') }}" method="post">
+    <form action="{{ route('simpan.add.motor') }}" method="post">
         @csrf
         <label for="no">No. Polisi</label><br>
-        <input type="text" name="no" value="{{ $no }}" />
+        <input type="text" name="no" />
         <br><br>
         <label for="merk">Merk</label><br>
-        <input type="text" name="merk" value="{{ $merk }}" />
+        <input type="text" name="merk" />
         <br><br>
         <label for="tipe">Tipe</label><br>
-        <input type="text" name="tipe" value="{{ $tipe }}" />
+        <input type="text" name="tipe" />
         <br><br>
         <label for="jenis">Jenis</label><br>
-        <input type="text" name="jenis" value="{{ $jenis }}" />
+        <input type="text" name="jenis" />
         <br><br>
         <label for="harga">Harga/hari</label><br>
-        <input type="number" name="harga" value="{{ $harga }}" />
+        <input type="text" name="harga" />
         <br><br>
-        <label for="available">Tersedia (True/False)</label><br>
-        <input type="number" min=0 max=1 name="available" value="{{ $available }}" />
+        <label for="available">Tersedia (True=1/False=0)</label><br>
+        <input type="text" name="available" />
         <br><br>
-        <input type="hidden" name="id" value="{{ $id }}">
         <input type="submit" value="simpan">
     </form>
 </body>

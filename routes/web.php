@@ -41,3 +41,13 @@ Route::get('/index',[App\Http\Controllers\controllerMotor::class, 'index'])->mid
 Route::get('/indexAdmin', [App\Http\Controllers\controllerMotor::class, 'indexAdmin'])->middleware(['auth']);
 
 Route::post('/editMotor', [App\Http\Controllers\controllerSewa::class, 'editMotor'])->middleware(['auth'])->name('edit.motor');
+
+Route::post('/simpanEditMotor', [App\Http\Controllers\controllerSewa::class, 'simpanEditMotor'])->middleware(['auth'])->name('simpan.edit.motor');
+
+Route::get('/addMotor', [App\Http\Controllers\controllerSewa::class, 'addMotor'])->middleware(['auth'])->name('add.motor');
+
+Route::post('/simpanAddMotor', [App\Http\Controllers\controllerSewa::class, 'simpanAddMotor'])->middleware(['auth'])->name('simpan.add.motor');
+
+Route::post('/editTransaksi', [App\Http\Controllers\controllerSewa::class, 'editTransaksi'])->middleware(['auth'])->name('edit.transaksi');
+
+Route::post('/simpanEditTransaksi', [App\Http\Controllers\controllerSewa::class, 'simpanEditTransaksi'])->middleware(['auth'])->name('simpan.edit.transaksi');

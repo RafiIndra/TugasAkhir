@@ -9,56 +9,60 @@
     <!--<link rel="stylesheet" href="{{ asset('style.css') }}" />
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">-->
     <style>
-        header {
-            height: 70px;
-            border-radius: 10px;
-        }
-        #motor {
-            font-size: 270%;
-            /*color: #7c65ff;*/
-            color: #4ab9dd;
-            margin-left: 20px;
-            height: auto;
-            font-weight: 500;
-        }
-        #an {
-            font-size: 270%;
-            color: #000000;
-            height: auto;
-            font-weight: 500;
-        }
-        .nav-button a {
-            text-decoration: none;
-        }
-        table{
-            font-family: 'Arial';
-            margin: 25px auto;
-            border-collapse: collapse;
-            border: 1px solid #eee;
-            border-bottom: 2px solid #00cccc;
-            box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
-                0px 10px 20px rgba(0,0,0,0.05),
-                0px 20px 20px rgba(0,0,0,0.05),
-                0px 30px 20px rgba(0,0,0,0.05);
+    header {
+        height: 70px;
+        border-radius: 10px;
+    }
 
-        }
-        
-        th,td {
-            border: 0px solid #f2f5f7;
-            background-image: linear-gradient(#add8e6, #4ab9dd);
-            border-bottom: 1px solid #ddd;
-            padding: 8px 20px;
-            text-align: center;
+    #motor {
+        font-size: 270%;
+        /*color: #7c65ff;*/
+        color: #4ab9dd;
+        margin-left: 20px;
+        height: auto;
+        font-weight: 500;
+    }
 
-        }
+    #an {
+        font-size: 270%;
+        color: #000000;
+        height: auto;
+        font-weight: 500;
+    }
 
-        h1{
-            margin-top: 40px;
-            text-align: center;
-            font-family: Georgia, "Times New Roman", Times, serif;
-            font-size: 30px;
-        } 
+    .nav-button a {
+        text-decoration: none;
+    }
 
+    table {
+        font-family: 'Arial';
+        margin: 25px auto;
+        border-collapse: collapse;
+        border: 1px solid #eee;
+        border-bottom: 2px solid #00cccc;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10),
+            0px 10px 20px rgba(0, 0, 0, 0.05),
+            0px 20px 20px rgba(0, 0, 0, 0.05),
+            0px 30px 20px rgba(0, 0, 0, 0.05);
+
+    }
+
+    th,
+    td {
+        border: 0px solid #f2f5f7;
+        background-image: linear-gradient(#add8e6, #4ab9dd);
+        border-bottom: 1px solid #ddd;
+        padding: 8px 20px;
+        text-align: center;
+
+    }
+
+    h1 {
+        margin-top: 40px;
+        text-align: center;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 30px;
+    }
     </style>
 </head>
 
@@ -92,6 +96,7 @@
                     <td>
                         <form action="{{ route('edit.motor') }}" method="post">
                             @csrf
+                            <input type="hidden" name="id" value={{ $motor->id }}>
                             <input type="hidden" name="motor" value={{ $motor }}>
                             <input type="hidden" name="no" value={{ $motor->No_Polisi }}>
                             <input type="hidden" name="merk" value={{ $motor->Merk }}>
@@ -107,6 +112,9 @@
                 <li>Motor Tidak Tersedia.</li>
                 @endforelse
         </table>
+        <a href="{{ route('add.motor') }}">
+            <button>Tambahkan Motor</button>
+        </a>
         <br><br>
 
         <h1 id=>DAFTAR TRANSAKSI</h1>
@@ -116,29 +124,30 @@
                     <th>ID Transaksi</th>
                     <th>No. Polisi</th>
                     <th>NIK Pelanggan</th>
-                    <th>Tipe</th>
-                    <th>Jenis</th>
-                    <th>Harga/Hari</th>
-                    <th>Available</th>
+                    <th>Nama Pelanggan</th>
+                    <th>Alamat Pelanggan</th>
+                    <th>Lama Sewa (hari)</th>
+                    <th>total_harga</th>
+                    <th>status_transaksi (berjalan=0, selesai=1)</th>
+                    <th>edit</th>
                 </tr>
                 @forelse($transaksis as $transaksi)
                 <tr>
                     <td>{{ $transaksi->id_transaksi }}</td>
                     <td>{{ $transaksi->no_polisi_motor }}</td>
                     <td>{{ $transaksi->id_pelanggan }}</td>
-                    <td>{{ $motor->Jenis }}</td>
-                    <td>{{ $motor->harga_Per_Hari }}</td>
-                    <td>{{ $motor->available }}</td>
+                    <td>{{ $transaksi->nama_pelanggan }}</td>
+                    <td>{{ $transaksi->alamat_pelanggan }}</td>
+                    <td>{{ $transaksi->durasi }}</td>
+                    <td>{{ $transaksi->total_harga}}</td>
+                    <td>{{ $transaksi->status_transaksi}}
                     <td>
-                        <form action="{{ route('sewa.motor') }}" method="post">
+                        <form action="{{ route('edit.transaksi') }}" method="post">
                             @csrf
-                            <input type="hidden" name="motor" value={{ $motor }}>
-                            <input type="hidden" name="no" value={{ $motor->No_Polisi }}>
-                            <input type="hidden" name="merk" value={{ $motor->Merk }}>
-                            <input type="hidden" name="tipe" value={{ $motor->Tipe }}>
-                            <input type="hidden" name="jenis" value={{ $motor->Jenis }}>
-                            <input type="hidden" name="harga" value={{ $motor->harga_Per_Hari }}>
-                            <input type="submit" value="Sewa">
+                            <input type="hidden" name="id" value={{ $transaksi->id_transaksi }}>
+                            <input type="hidden" name="status" value={{ $transaksi->status_transaksi }}>
+                            <input type="hidden" name="no" value={{ $transaksi->no_polisi_motor }}>
+                            <input type="submit" value="Edit">
                         </form>
                     </td>
                 </tr>
@@ -147,7 +156,7 @@
                 @endforelse
         </table>
     </div>
-    
+
 </body>
 
 </html>

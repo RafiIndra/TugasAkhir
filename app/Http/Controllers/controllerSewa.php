@@ -43,6 +43,8 @@ class controllerSewa extends Controller
 
         $transaksi = new transaksi;
         $transaksi->no_polisi_motor = $no;
+        $transaksi->nama_pelanggan = $nama;
+        $transaksi->alamat_pelanggan = $alamat;
         $transaksi->id_pelanggan = $NIK;
         $transaksi->durasi = $durasi;
         $transaksi->total_harga = $total;
@@ -65,6 +67,7 @@ class controllerSewa extends Controller
     }
 
     public function editMotor(Request $request) {
+        $id = $request->id;
         $no = $request->no;
         $merk = $request->merk;
         $tipe = $request->tipe;
@@ -74,6 +77,7 @@ class controllerSewa extends Controller
         $motor = $request->motor;
 
         return view('editMotor')
+        ->with('id', $id)
         ->with('no', $no)
         ->with('merk', $merk)
         ->with('tipe', $tipe)
@@ -81,7 +85,61 @@ class controllerSewa extends Controller
         ->with('harga', $harga)
         ->with('available', $available)
         ->with('motor', $motor);
-        /*tes*/
-        /*halo*/
+    }
+
+    public function simpanEditMotor(Request $request) {
+        Motor::where('id', $request->id)->update(['No_Polisi' => $request->no]);
+        Motor::where('id', $request->id)->update(['Merk' => $request->merk]);
+        Motor::where('id', $request->id)->update(['Tipe' => $request->tipe]);
+        Motor::where('id', $request->id)->update(['Jenis' => $request->jenis]);
+        Motor::where('id', $request->id)->update(['harga_Per_Hari' => $request->harga]);
+        Motor::where('id', $request->id)->update(['available' => $request->available]);
+
+        $transaksis = Transaksi::all();
+        $motors = Motor::all();
+
+        return view('indexAdmin')->with('motors', $motors)->with('transaksis', $transaksis);
+    }
+
+    public function simpanAddMotor(Request $request) {
+        $motor = new Motor;
+        $motor->No_Polisi = $request->no;
+        $motor->Tipe = $request->tipe;
+        $motor->Merk = $request->merk;
+        $motor->Jenis = $request->jenis;
+        $motor->harga_Per_Hari = $request->harga;
+        $motor->available = $request->available;
+        $motor->save();
+
+        $transaksis = Transaksi::all();
+        $motors = Motor::all();
+
+        return view('indexAdmin')->with('motors', $motors)->with('transaksis', $transaksis);
+    }
+
+    public function addMotor() {
+        return view('simpanAddMotor');
+    }
+
+    public function editTransaksi(Request $request) {
+
+        $id = $request->id;
+        $status = $request->status;
+        $no = $request->no;
+
+        return view('editTransaksi')
+        ->with('id', $id)
+        ->with('status', $status)
+        ->with('no', $no);
+    }
+
+    public function simpanEditTransaksi(Request $request) {
+        Transaksi::where('id_transaksi', $request->id)->update(['status_transaksi' => $request->status]);
+        Motor::where('No_Polisi', $request->no)->update(['available' => 1]);
+
+        $transaksis = Transaksi::all();
+        $motors = Motor::all();
+
+        return view('indexAdmin')->with('motors', $motors)->with('transaksis', $transaksis);
     }
 }
