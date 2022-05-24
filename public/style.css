@@ -23,6 +23,11 @@
     font-size: 20px;
 }
 
+.admin > table > tbody > tr > td {
+    padding: 5px;
+    border: 1px solid black;
+}
+
 table {
     border-spacing: 0 1em;
 }
@@ -164,7 +169,6 @@ p {
 }
 header {
     height: 70px;
-    /*background-color: lightblue;*/
     border-radius: 10px;
 }
 #motor {
@@ -268,4 +272,27 @@ footer {
     width: fit-content;
     margin: auto;
     font-weight: 450;
+}
+
+.logout {
+    float: right;
+    width: fit-content;
+    margin-top: -45px;
+}
+
+.logout > button {
+    float: right;
+    color: var(--primary-color);
+    font-size: large;
+    text-decoration: none;
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+}
+
+#tes {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-family: "poppins";
+    font-weight: normal;
 }

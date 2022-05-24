@@ -46,6 +46,7 @@ class controllerSewa extends Controller
         $transaksi->id_pelanggan = $NIK;
         $transaksi->durasi = $durasi;
         $transaksi->total_harga = $total;
+        $transaksi->status_transaksi = 0;
         $transaksi->save();
 
         Motor::where('No_Polisi', $no)->update(['available' => 0]);
@@ -61,5 +62,25 @@ class controllerSewa extends Controller
         ->with('jenis', $jenis)
         ->with('transaksi', $transaksi)
         ->with('harga', $harga);
+    }
+
+    public function editMotor(Request $request) {
+        $no = $request->no;
+        $merk = $request->merk;
+        $tipe = $request->tipe;
+        $jenis = $request->jenis;
+        $harga = $request->harga;
+        $available = $request->available;
+        $motor = $request->motor;
+
+        return view('editMotor')
+        ->with('no', $no)
+        ->with('merk', $merk)
+        ->with('tipe', $tipe)
+        ->with('jenis', $jenis)
+        ->with('harga', $harga)
+        ->with('available', $available)
+        ->with('motor', $motor);
+        /*tes*/
     }
 }
