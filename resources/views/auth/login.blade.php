@@ -1,65 +1,52 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                <!--<div class="logo2">
-                    <span id="motor">Motor</span><span id="an">an</span>
-                </div>-->
-            </a>
-        </x-slot>
+<!DOCTYPE html>
+<html lang="en">
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motoran</title>
+    <link rel="stylesheet" href="{{ asset('style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
+</head>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+<body>
+    <div class="login">
+        <h2>Login</h2>
+    </div>
+    <div class="login-card">
         <form method="POST" action="{{ route('login') }}">
             @csrf
+            <label for="email">Email</label><br>
+            <input id="email" type="email" name="email" :value="old('email')" required autofocus /><br><br>
+            <label for="password">Password</label><br>
+            <input id="password" type="password" name="password" required autocomplete="current-password" /><br><br>
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+            <label for="remember_me">
+                <input id="remember_me" type="checkbox" name="remember">
+                <span>{{ __('Remember me') }}</span>
+            </label>
+            <br>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
-                    autofocus />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                    autocomplete="current-password" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox"
-                        class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-                @endif
-
-                <x-button class="ml-3">
+            <div class="login-button">
+                <button>
                     {{ __('Log in') }}
-                </x-button>
+                </button>
             </div>
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
-                    {{ __('Dont have an account?') }}
-                </a>
-            </div>
+            <br>
+
+            @if (Route::has('password.request'))
+            <a href="{{ route('password.request') }}">
+                {{ __('Forgot your password?') }}
+            </a>
+            @endif
+            <span>&ensp;</span>
+
+            <a href="{{ route('register') }}">
+                {{ __('Dont have an account?') }}
+            </a>
         </form>
-    </x-auth-card>
-</x-guest-layout>
+    </div>
+</body>
+
+</html>

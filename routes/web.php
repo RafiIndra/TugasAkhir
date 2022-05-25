@@ -36,7 +36,7 @@ Route::post('/invoice',[App\Http\Controllers\controllerSewa::class, 'invoice'])-
 
 Route::get('/index',[App\Http\Controllers\controllerMotor::class, 'index'])->middleware(['auth'])->name('home.button');
 
-Route::get('/indexAdmin', [App\Http\Controllers\controllerMotor::class, 'indexAdmin'])->middleware(['auth']);
+Route::get('/indexAdmin', [App\Http\Controllers\controllerMotor::class, 'indexAdmin'])->middleware(['auth', 'role:admin'])->name('index.admin');
 
 Route::post('/editMotor', [App\Http\Controllers\controllerSewa::class, 'editMotor'])->middleware(['auth'])->name('edit.motor');
 
