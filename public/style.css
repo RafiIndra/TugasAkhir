@@ -64,13 +64,14 @@ h1 {
 /* Card */
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 var(--primary-color);
     max-width: 300px;
     margin: auto;
     text-align: center;
     font-family: arial;
     padding: 10px auto;
     color: var(--secondary-color);
+    border-radius: 15px;
 }
 
 .price {
@@ -89,6 +90,7 @@ h1 {
     width: 100%;
     font-size: 18px;
     color: var(--secondary-color);
+    border-radius: 10px;
 }
 
 .card button:hover {
@@ -147,10 +149,14 @@ p {
     width: fit-content;
     border-radius: 10px;
     padding: 30px;
-    box-shadow: 0px 5px 10px 0px #0000001a;
+    box-shadow: 2px 5px 10px 2px var(--primary-color);
     /*background-image: linear-gradient(#add8e6, #4ab9dd);*/
     background-color: white;
     color: var(--secondary-color);
+}
+
+#glow {
+    border-color: var(--primary-color);
 }
 
 .information > h1 {
@@ -295,7 +301,7 @@ footer {
     color: var(--primary-color);
     font-size: large;
     text-decoration: none;
-    border-radius: 20px;
+    border-radius: 5px;
     border: none;
     background-color: white;
 }
@@ -305,6 +311,14 @@ footer {
     color: var(--primary-color);
     font-family: "poppins";
     font-weight: normal;
+}
+
+#tes2 {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-family: "poppins";
+    font-weight: normal;
+    float: left;
 }
 
 .login-card {
@@ -426,4 +440,8 @@ footer {
     margin-top: 5%;
     font-size: 30px;
     color: var(--secondary-color);
+}
+
+.username {
+    background-color: aquamarine;
 }

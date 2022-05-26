@@ -38,7 +38,7 @@
                         </td>
                         <td>:</td>
                         <td>
-                            <input type="text" name="nama" required><br>
+                            <input id="glow" type="text" name="nama" required><br>
                         </td>
                     </tr>
                     <tr>
@@ -47,7 +47,7 @@
                         </td>
                         <td>:</td>
                         <td>
-                            <input type="number" name="durasi" required><br>
+                            <input id="glow" type="number" name="durasi" required><br>
                         </td>
                     </tr>
                     <tr>
@@ -56,8 +56,8 @@
                         </td>
                         <td>:</td>
                         <td>
-                            <input type="number" name="NIK" min="1000000000000000" max="9999999999999999" required
-                                oninvalid="this.setCustomValidity('NIK tidak sesuai')"
+                            <input id="glow" type="number" name="NIK" min="1000000000000000" max="9999999999999999"
+                                required oninvalid="this.setCustomValidity('NIK tidak sesuai')"
                                 oninput="this.setCustomValidity('')" /><br>
                         </td>
                     </tr>
@@ -67,7 +67,7 @@
                         </td>
                         <td>:</td>
                         <td>
-                            <input type="text" name="alamat" required><br>
+                            <input id="glow" type="text" name="alamat" required><br>
                         </td>
                     </tr>
                     <tr>

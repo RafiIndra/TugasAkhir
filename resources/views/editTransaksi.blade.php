@@ -62,8 +62,14 @@
     <h1>EDIT TRANSAKSI<br>ID transaksi: {{ $id }}</h1>
     <form action="{{ route('simpan.edit.transaksi') }}" method="post">
         @csrf
-        <label for="no">status transaksi (berjalan=0, selesai =1)</label><br>
-        <input type="text" name="status" value="{{ $status }}" />
+        <label for="no">status transaksi</label><br>
+        @if ( $status == 0)
+        <input type="radio" name="status" value=0 checked="checked">Berjalan</input>
+        <input type="radio" name="status" value=1>Selesai</input>
+        @else
+        <input type="radio" name="status" value=0>Berjalan</input>
+        <input type="radio" name="status" value=1 checked="checked">Selesai</input>
+        @endif
         <br><br>
         <input type="hidden" name="id" value="{{ $id }}">
         <input type="hidden" name="no" value="{{ $no }}">

@@ -77,8 +77,14 @@
         <label for="harga">Harga/hari</label><br>
         <input type="number" name="harga" value="{{ $harga }}" />
         <br><br>
-        <label for="available">Tersedia (True=1/False=0)</label><br>
-        <input type="number" min=0 max=1 name="available" value="{{ $available }}" />
+        <label for="available">Tersedia</label><br>
+        @if ( $available == 0)
+        <input type="radio" name="available" value=0 checked="checked">Dipinjam</input>
+        <input type="radio" name="available" value=1>Tersedia</input>
+        @else
+        <input type="radio" name="available" value=0>Dipinjam</input>
+        <input type="radio" name="available" value=1 checked="checked">Tersedia</input>
+        @endif
         <br><br>
         <input type="hidden" name="id" value="{{ $id }}">
         <input type="submit" value="simpan">
