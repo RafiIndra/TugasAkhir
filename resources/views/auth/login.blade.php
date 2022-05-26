@@ -12,8 +12,10 @@
 
 <body>
     <div class="login">
-        <h2>Login</h2>
+        <span id="motor2">Motor</span><span id="an">an</span></a>
     </div>
+    <h1 id="login-text">Rent a motorbike, easily.</h1>
+    <br>
     <div class="login-card">
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -26,7 +28,7 @@
                 <input id="remember_me" type="checkbox" name="remember">
                 <span>{{ __('Remember me') }}</span>
             </label>
-            <br>
+            <br><br>
 
             <div class="login-button">
                 <button>
@@ -34,19 +36,21 @@
                 </button>
             </div>
             <br>
+            <hr>
 
             @if (Route::has('password.request'))
-            <a href="{{ route('password.request') }}">
+            <a id="forgot" href="{{ route('password.request') }}">
                 {{ __('Forgot your password?') }}
             </a>
             @endif
             <span>&ensp;</span>
 
-            <a href="{{ route('register') }}">
+            <a id="forgot" href="{{ route('register') }}">
                 {{ __('Dont have an account?') }}
             </a>
         </form>
     </div>
+    <img src={{ URL::asset('bg3.jpg') }} class="background">
 </body>
 
 </html>

@@ -7,7 +7,7 @@
     --main-bg-color: white;
     --primary-color: #4ab9dd;
     --secondary-color: #006080;
-    --alternate-color: #a5a0da;
+    --alternate-color: #bfecfe;
     --alert-color: #cb7070;
 }
 
@@ -70,6 +70,7 @@ h1 {
     text-align: center;
     font-family: arial;
     padding: 10px auto;
+    color: var(--secondary-color);
 }
 
 .price {
@@ -82,11 +83,12 @@ h1 {
     outline: 0;
     padding: 12px;
     color: white;
-    background-color: #4ab9dd;
+    background-color: var(--alternate-color);
     text-align: center;
     cursor: pointer;
     width: 100%;
     font-size: 18px;
+    color: var(--secondary-color);
 }
 
 .card button:hover {
@@ -146,7 +148,9 @@ p {
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0px 5px 10px 0px #0000001a;
-    background-image: linear-gradient(#add8e6, #4ab9dd);
+    /*background-image: linear-gradient(#add8e6, #4ab9dd);*/
+    background-color: white;
+    color: var(--secondary-color);
 }
 
 .information > h1 {
@@ -159,6 +163,7 @@ p {
     margin: 10px 0;
     font-weight: 500;
     letter-spacing: 0.2rem;
+    color: var(--secondary-color);
 }
 #gambarIndex {
     display: block;
@@ -169,7 +174,8 @@ p {
 }
 header {
     height: 70px;
-    border-radius: 10px;
+    border-radius: 5px;
+    min-width: 100%;
 }
 #motor {
     font-size: 270%;
@@ -193,7 +199,7 @@ header {
 #heroText {
     font-family: "Poppins";
     font-weight: lighter;
-    color: white;
+    color: var(--secondary-color);
     font-size: 250%;
     letter-spacing: 00.1em;
 }
@@ -202,7 +208,10 @@ header {
     border-radius: 20px;
     /*background-image: linear-gradient(#add8e6, #4ab9dd);*/
     /*background-image: linear-gradient(#fffb8d, #4ab9dd);*/
-    background-image: linear-gradient(antiquewhite, #4ab9dd);
+    /*background-image: linear-gradient(antiquewhite, #4ab9dd);*/
+    background-image: url("bg3.jpg");
+    background-size: cover;
+    /*background-color: white;*/
     margin-left: auto;
     margin-right: auto;
 }
@@ -212,8 +221,7 @@ header {
     letter-spacing: 0.1em;
 }
 footer {
-    /*background-color: var(--secondary-color);*/
-    height: 40px;
+    height: 50px;
     text-align: right;
     width: 100%;
 }
@@ -238,6 +246,7 @@ footer {
     border: 2px solid black;
     border-radius: 20px;
     box-shadow: #000000;
+    background-color: white;
 }
 
 .invoice-text {
@@ -278,6 +287,7 @@ footer {
     float: right;
     width: fit-content;
     margin-top: -45px;
+    margin-right: 35px;
 }
 
 .logout > button {
@@ -299,24 +309,121 @@ footer {
 
 .login-card {
     margin: auto;
-    width: fit-content;
+    width: 27%;
     border-radius: 10px;
     padding: 30px;
-    box-shadow: 0px 5px 10px 0px #0000001a;
+    box-shadow: 0px 5px 10px 0px var(--primary-color);
     justify-content: center;
     /*background-image: linear-gradient(#add8e6, #4ab9dd);*/
+    background-color: white;
+    color: var(--secondary-color);
 }
 
 .login {
-    width: 30%;
+    width: fit-content;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 7%;
     font-size: 30px;
     color: var(--secondary-color);
-    text-align: center;
 }
 
 .login-button > button {
-    width: 90%;
-    border-radius: 20px;
+    margin: auto;
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.login-button > button:hover {
+    cursor: pointer;
+    opacity: 70%;
+}
+
+#forgot {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+#forgot:hover {
+    opacity: 60%;
+}
+
+.background {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.background2 {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#cari {
+    width: 50px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--alternate-color);
+    color: var(--secondary-color);
+}
+
+#cari:hover {
+    cursor: pointer;
+    opacity: 70%;
+}
+
+#sewa {
+    float: right;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+#sewa:hover {
+    cursor: pointer;
+    opacity: 70%;
+}
+
+#login-text {
+    width: fit-content;
+    margin: auto;
+    margin-top: -15px;
+    font-family: "Poppins";
+    font-weight: lighter;
+    color: var(--secondary-color);
+    font-size: 150%;
+    letter-spacing: 00.1em;
+}
+
+#motor2 {
+    font-size: 270%;
+    /*color: #7c65ff;*/
+    color: #4ab9dd;
+    margin: auto;
+    text-decoration: none;
+    height: auto;
+    font-weight: 500;
+}
+
+.login7 {
+    width: fit-content;
+    margin: auto;
+    margin-top: 5%;
+    font-size: 30px;
+    color: var(--secondary-color);
 }

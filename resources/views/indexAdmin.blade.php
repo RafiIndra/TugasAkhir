@@ -97,7 +97,11 @@
                     <td>{{ $motor->Tipe }}</td>
                     <td>{{ $motor->Jenis }}</td>
                     <td>{{ $motor->harga_Per_Hari }}</td>
-                    <td>{{ $motor->available }}</td>
+                    @if ($motor->available == 0)
+                    <td>Dipinjam</td>
+                    @else
+                    <td>Tersedia</td>
+                    @endif
                     <td>
                         <form action="{{ route('edit.motor') }}" method="post">
                             @csrf
@@ -147,7 +151,11 @@
                     <td>{{ $transaksi->alamat_pelanggan }}</td>
                     <td>{{ $transaksi->durasi }}</td>
                     <td>{{ $transaksi->total_harga}}</td>
-                    <td>{{ $transaksi->status_transaksi}}
+                    @if ($transaksi->status_transaksi == 0)
+                    <td>Berjalan</td>
+                    @else
+                    <td>Selesai</td>
+                    @endif
                     <td>
                         <form action="{{ route('edit.transaksi') }}" method="post">
                             @csrf

@@ -36,6 +36,7 @@
             </div>
         </div>
     </div>
+    <img src={{ URL::asset('bg3.jpg') }} class="background">
     <div class="okay">
         <a href="{{ route('home.button') }}">
             <button>OKAY</button>

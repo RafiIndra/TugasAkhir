@@ -68,49 +68,52 @@
         </table>
     </div> -->
     <h1 id="Title">Motor Tersedia</h1>
-    <div class="sort-motor">
-        <form action="{{ route('sort.motor') }}" method="post">
-            @csrf
-            <label for="merk">Pilih Merk:</label>
-            <select name="merk" id="merk">
-                <option value="">Any</option>
-                <option value="honda">honda</option>
-                <option value="yamaha">yamaha</option>
-                <option value="suzuki">suzuki</option>
-                <option value="kawasaki">kawasaki</option>
-            </select>
-            <label for="tipe">Pilih Tipe Unit</label>
-            <input type="text" name="tipe">
-            <input type="submit" value="Cari">
-        </form>
-    </div>
-    <br>
-    <div class="row">
-        @forelse($motors as $motor)
-        <div class="column">
-            <div class="card">
-                <p>{{ $motor->Merk }}</p>
-                <h1 class="tipe">{{ $motor->Tipe }}</h1>
-                <p class="price"><span>Rp.</span>{{ $motor->harga_Per_Hari }}</p>
-                <p>{{ $motor->No_Polisi }}</p>
-                <p>
-                <form action="{{ route('sewa.motor') }}" method="post">
-                    @csrf
-                    <input type="hidden" name="motor" value={{ $motor }}>
-                    <input type="hidden" name="no" value={{ $motor->No_Polisi }}>
-                    <input type="hidden" name="merk" value={{ $motor->Merk }}>
-                    <input type="hidden" name="tipe" value={{ $motor->Tipe }}>
-                    <input type="hidden" name="jenis" value={{ $motor->Jenis }}>
-                    <input type="hidden" name="harga" value={{ $motor->harga_Per_Hari }}>
-                    <button class="submit" type="submit">Sewa</button>
-                </form>
-                </p>
-            </div>
+    <div class="index-bottom">
+        <div class="sort-motor">
+            <form action="{{ route('sort.motor') }}" method="post">
+                @csrf
+                <label for="merk">Pilih Merk:</label>
+                <select name="merk" id="merk">
+                    <option value="">Any</option>
+                    <option value="honda">honda</option>
+                    <option value="yamaha">yamaha</option>
+                    <option value="suzuki">suzuki</option>
+                    <option value="kawasaki">kawasaki</option>
+                </select>
+                <label for="tipe">Pilih Tipe Unit</label>
+                <input type="text" name="tipe">
+                <input id="cari" type="submit" value="Cari">
+            </form>
         </div>
-        @empty
-        <h1>Motor Tidak Tersedia.</h1>
-        @endforelse
+        <br>
+        <div class="row">
+            @forelse($motors as $motor)
+            <div class="column">
+                <div class="card">
+                    <p>{{ $motor->Merk }}</p>
+                    <h1 class="tipe">{{ $motor->Tipe }}</h1>
+                    <p class="price"><span>Rp.</span>{{ $motor->harga_Per_Hari }}</p>
+                    <p>{{ $motor->No_Polisi }}</p>
+                    <p>
+                    <form action="{{ route('sewa.motor') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="motor" value={{ $motor }}>
+                        <input type="hidden" name="no" value={{ $motor->No_Polisi }}>
+                        <input type="hidden" name="merk" value={{ $motor->Merk }}>
+                        <input type="hidden" name="tipe" value={{ $motor->Tipe }}>
+                        <input type="hidden" name="jenis" value={{ $motor->Jenis }}>
+                        <input type="hidden" name="harga" value={{ $motor->harga_Per_Hari }}>
+                        <button class="submit" type="submit">Sewa</button>
+                    </form>
+                    </p>
+                </div>
+            </div>
+            @empty
+            <h1>Motor Tidak Tersedia.</h1>
+            @endforelse
+        </div>
     </div>
+    <!--<img src={{ URL::asset('bg3.jpg') }} class="background">-->
     <footer>
         <div class="container-fluid" id="cr">
             <h5 id="creator">© 2022 Motoran corp</h5>

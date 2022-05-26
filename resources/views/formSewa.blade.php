@@ -18,13 +18,13 @@
 
         <div class="information">
             <h1 id=Title>Rincian Pesanan</h1>
-            <p>Motor yang akan disewa</p>
+            <p>Motor yang akan disewa:</p>
             <h2 class="text-information">{{ $tipe }}</h2>
-            <p>Merk</p>
+            <p>Merk:</p>
             <h2 class="text-information">{{ $merk }}</h2>
-            <p>No. Polisi</p>
+            <p>No. Polisi:</p>
             <h2 class="text-information">{{ $no }}</h2>
-            <p>Harga per hari</p>
+            <p>Harga per hari:</p>
             <h2 class="text-information">Rp.{{ $harga }}</h2>
         </div>
 
@@ -73,7 +73,7 @@
                     <tr>
                         <td></td>
                         <td></td>
-                        <td><input type="submit" value="Sewa Sekarang"></td>
+                        <td><input id="sewa" type="submit" value="Sewa Sekarang"></td>
                     </tr>
                 </table>
                 <input type="hidden" name="motor" value={{ $motor }}>
@@ -87,6 +87,7 @@
         </div>
 
     </div>
+    <img src={{ URL::asset('bg3.jpg') }} class="background">
     <footer>
         <div class="container-fluid" id="cr">
             <h5 id="creator">© 2022 Motoran corp</h5>
