@@ -271,7 +271,7 @@ footer {
     height: 50px;
 }
 
-.okay > a:hover {
+.okay > a > button:hover {
     opacity: 70%;
     cursor: pointer;
 }

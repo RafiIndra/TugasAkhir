@@ -78,8 +78,9 @@
         <label for="harga">Harga/hari</label><br>
         <input type="text" name="harga" />
         <br><br>
-        <label for="available">Tersedia (True=1/False=0)</label><br>
-        <input type="text" name="available" />
+        <label for="available">Tersedia</label><br>
+        <input type="radio" name="available" value=1>Tersedia</input>
+        <input type="radio" name="available" value=0>Sedang Dipinjam</input>
         <br><br>
         <input type="submit" value="Simpan">
     </form>

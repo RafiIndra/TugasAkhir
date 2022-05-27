@@ -27,7 +27,7 @@
                     Merk motor: {{ $merk }}<br>
                     Tipe motor: {{ $tipe }}<br>
                     Harga per hari: {{ $harga }}<br>
-                    Lama sewa: {{ $durasi }}<br>
+                    Lama sewa: {{ $durasi }} hari<br>
                     Total bayar: Rp {{ $transaksi->total_harga }}<br><br><br>
 
                     Silahkan lakukan pembayaran saat mengambil motor, atau lakukan transfer ke nomor berikut:<br>

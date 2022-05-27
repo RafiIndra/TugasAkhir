@@ -47,7 +47,7 @@
                         </td>
                         <td>:</td>
                         <td>
-                            <input id="glow" type="number" name="durasi" required><br>
+                            <input id="glow" type="number" min="1" name="durasi" required><br>
                         </td>
                     </tr>
                     <tr>
