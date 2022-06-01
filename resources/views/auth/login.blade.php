@@ -38,12 +38,12 @@
             <br>
             <hr>
 
-            @if (Route::has('password.request'))
+            <!--@if (Route::has('password.request'))
             <a id="forgot" href="{{ route('password.request') }}">
                 {{ __('Forgot your password?') }}
             </a>
             @endif
-            <span>&ensp;</span>
+            <span>&ensp;</span>-->
 
             <a id="forgot" href="{{ route('register') }}">
                 {{ __('Dont have an account?') }}

@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motoran</title>
-    <!--<link rel="stylesheet" href="{{ asset('style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">-->
+    <link rel="stylesheet" href="{{ asset('style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
     <style>
     header {
         height: 70px;
@@ -16,7 +16,7 @@
 
     #motor {
         font-size: 270%;
-        /*color: #7c65ff;*/
+        color: #7c65ff;
         color: #4ab9dd;
         margin-left: 20px;
         height: auto;
@@ -38,7 +38,7 @@
         font-family: 'Arial';
         margin: 25px auto;
         border-collapse: collapse;
-        border: 1px solid #eee;
+        border: 1px solid black;
         border-bottom: 2px solid #00cccc;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10),
             0px 10px 20px rgba(0, 0, 0, 0.05),
@@ -49,10 +49,11 @@
 
     th,
     td {
-        border: 0px solid #f2f5f7;
+        border: 1px solid black;
         background-image: linear-gradient(#add8e6, #4ab9dd);
         border-bottom: 1px solid #ddd;
-        padding: 8px 20px;
+        background-color:
+            padding: 8px 20px;
         text-align: center;
 
     }
@@ -68,12 +69,47 @@
         width: fit-content;
         margin: auto;
     }
+
+    .logout {
+        float: right;
+        width: fit-content;
+        margin-top: -45px;
+        margin-right: 35px;
+    }
+
+    .logout>button {
+        float: right;
+        color: var(--primary-color);
+        font-size: large;
+        text-decoration: none;
+        border-radius: 5px;
+        border: none;
+        background-color: white;
+    }
+
+    #tes {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-family: "poppins";
+        font-weight: normal;
+    }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="nav-button"><a href="/"><span id="motor">Motor</span><span id="an">an</span></a></div>
+        <div class="nav-button"><a href="/indexAdmin"><span id="motor">Motor</span><span id="an">an</span></a></div>
+        <div class="logout">
+            <button>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <x-dropdown-link id="tes" :href="route('logout')" onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-dropdown-link>
+                </form>
+            </button>
+        </div>
     </header>
 
     <div class="admin">
@@ -88,7 +124,7 @@
                     <th>Harga/Hari</th>
                     <th>Available</th>
                     <th>Ubah</th>
-
+                    <th>Hapus</th>
                 </tr>
                 @forelse($motors as $motor)
                 <tr>
@@ -116,9 +152,18 @@
                             <input type="submit" value="Edit">
                         </form>
                     </td>
+                    <td>
+                        <form action="{{ route('delete.motor') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value={{ $motor->id }}>
+                            <input type="submit" value="Hapus">
+                        </form>
+                    </td>
                 </tr>
                 @empty
-                <li>Motor Tidak Tersedia.</li>
+                <tr>
+                    <td colspan="8">Motor Tidak Tersedia.</td>
+                </tr>
                 @endforelse
         </table>
         <div class="add-motor">
@@ -139,8 +184,9 @@
                     <th>Alamat Pelanggan</th>
                     <th>Lama Sewa<br>(hari)</th>
                     <th>total_harga</th>
-                    <th>status_transaksi<br>(berjalan=0, selesai=1)</th>
+                    <th>status_transaksi</th>
                     <th>edit</th>
+                    <th>hapus</th>
                 </tr>
                 @forelse($transaksis as $transaksi)
                 <tr>
@@ -165,10 +211,20 @@
                             <input type="submit" value="Edit">
                         </form>
                     </td>
+                    <td>
+                        <form action="{{ route('delete.transaksi') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value={{ $transaksi->id_transaksi }}>
+                            <input type="submit" value="delete">
+                        </form>
+                    </td>
                 </tr>
                 @empty
-                <li>Motor Tidak Tersedia.</li>
+                <tr>
+                    <td colspan="10">Transaksi Tidak Tersedia.</td>
+                </tr>
                 @endforelse
+            </tbody>
         </table>
     </div>
 

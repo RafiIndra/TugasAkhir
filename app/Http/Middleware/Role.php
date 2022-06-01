@@ -18,6 +18,8 @@ class Role
     {
         if ($request->user()->role == $role) {
             return $next($request);
+            /*return redirect()->route('index.admin');*/
+            /*return redirect()->intended(RouteServiceProvider::HOME);*/
         }
 
         /*return back()->with('alert', 'Access Denied');*/

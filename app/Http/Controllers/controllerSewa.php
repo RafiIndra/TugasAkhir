@@ -95,10 +95,7 @@ class controllerSewa extends Controller
         Motor::where('id', $request->id)->update(['harga_Per_Hari' => $request->harga]);
         Motor::where('id', $request->id)->update(['available' => $request->available]);
 
-        $transaksis = Transaksi::all();
-        $motors = Motor::all();
-
-        return view('indexAdmin')->with('motors', $motors)->with('transaksis', $transaksis);
+        return redirect()->route('index.admin');
     }
 
     public function simpanAddMotor(Request $request) {
@@ -111,10 +108,7 @@ class controllerSewa extends Controller
         $motor->available = $request->available;
         $motor->save();
 
-        $transaksis = Transaksi::all();
-        $motors = Motor::all();
-
-        return view('indexAdmin')->with('motors', $motors)->with('transaksis', $transaksis);
+        return redirect()->route('index.admin');
     }
 
     public function addMotor() {
@@ -137,9 +131,18 @@ class controllerSewa extends Controller
         Transaksi::where('id_transaksi', $request->id)->update(['status_transaksi' => $request->status]);
         Motor::where('No_Polisi', $request->no)->update(['available' => 1]);
 
-        $transaksis = Transaksi::all();
-        $motors = Motor::all();
+        return redirect()->route('index.admin');
+    }
 
-        return view('indexAdmin')->with('motors', $motors)->with('transaksis', $transaksis);
+    public function deleteTransaksi(Request $request) {
+        $transaksi = Transaksi::where('id_transaksi', $request->id)->delete();
+
+        return redirect()->route('index.admin');
+    }
+
+    public function deleteMotor(Request $request) {
+        $motor = Motor::where('id', $request->id)->delete();
+        
+        return redirect()->route('index.admin');
     }
 }
